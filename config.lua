@@ -10,13 +10,13 @@ an executable
 
 -- general
 lvim.log.level = "warn"
+vim.opt.relativenumber = true
+vim.opt.linebreak = true
+vim.opt.guifont = "FiraCode Nerd Font:h12"
+vim.opt.cmdheight = 1
+vim.opt.updatetime = 50
 lvim.format_on_save.enabled = true
 lvim.colorscheme = "lunar"
--- to disable icons and use a minimalist setup, uncomment the following
--- lvim.use_icons = false
-
--- TODO: User Config for predefined plugins
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
@@ -45,3 +45,8 @@ lvim.builtin.treesitter.highlight.enable = true
 require("user.keybindings").setup()
 -- Additional Plugins
 require("user.plugins").setup()
+-- to disable icons and use a minimalist setup, uncomment the following
+-- lvim.use_icons = false
+
+-- TODO: User Config for predefined plugins
+-- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
