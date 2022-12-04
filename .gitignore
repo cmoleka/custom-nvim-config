@@ -1,1 +1,4 @@
-plugin
+# plugins 
+plugin*
+# backup folder
+backup*
