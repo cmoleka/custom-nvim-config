@@ -1,0 +1,5 @@
+# Directories
+plugin/
+
+# files
+.DS_Store

@@ -17,6 +17,9 @@ M.setup = function()
   -- enter space before cursor
   vim.api.nvim_set_keymap("n", "sb", "i <ESC>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "sa", "a <ESC>", { noremap = true, silent = true })
+  -- -- Moving a line up or down
+  lvim.keys.normal_mode["<A-Up>"] = ":m .-2<CR>=="
+  lvim.keys.normal_mode["<A-Down>"] = ":m .+1<CR>=="
 end
 
 return M

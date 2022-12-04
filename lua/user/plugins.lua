@@ -6,11 +6,17 @@ M.setup = function()
     { "github/copilot.vim" },
     {
       "tpope/vim-surround",
-
-      -- make sure to change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
-      -- setup = function()
-      --  vim.o.timeoutlen = 500
-      -- end
+    },
+    {
+      "iamcco/markdown-preview.nvim",
+      ft = "markdown",
+      run = ":call mkdp#util#install()",
+      config = function()
+        vim.g.mkdp_auto_start = 1
+      end,
+    },
+    {
+      "tpope/vim-commentary",
     },
   }
 
