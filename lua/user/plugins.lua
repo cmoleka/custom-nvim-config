@@ -3,7 +3,30 @@ local M = {}
 M.setup = function()
   local configs = require('user.plugin-configs')
   lvim.plugins = {
-    { "github/copilot.vim" },
+    {
+      "mg979/vim-visual-multi",
+      config = function()
+        vim.cmd([[
+                let g:VM_maps = {}
+                let g:VM_mouse_mappings = 1
+                ]])
+      end,
+    },
+    {
+      "zbirenbaum/copilot.lua",
+      cmd = "Copilot",
+      event = { "VimEnter" },
+      config = function()
+        require("user.copilot")
+      end,
+    },
+    {
+      "zbirenbaum/copilot-cmp",
+      after = { "copilot.lua" },
+      config = function()
+        require("copilot_cmp").setup()
+      end,
+    },
     {
       "tpope/vim-surround",
     },
@@ -47,6 +70,57 @@ M.setup = function()
           }
         }
       end,
+    },
+    {
+      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      config = function()
+        require("lsp_lines").setup()
+      end,
+    },
+    {
+      "windwp/nvim-ts-autotag",
+      config = function()
+        require("nvim-ts-autotag").setup()
+      end
+    },
+    {
+      "windwp/nvim-autopairs",
+      config = function()
+        require("nvim-autopairs").setup {
+          disable_filetype = { "TelescopePrompt", "vim" }
+        }
+      end
+    },
+    {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        local status, null_ls = pcall(require, "null-ls")
+        if (not status) then return end
+        null_ls.setup()
+      end
+    },
+    {
+      "MunifTanjim/prettier.nvim",
+      config = function()
+        local status, prettier = pcall(require, "prettier")
+        if (not status) then return end
+        prettier.setup {
+          bin = 'prettierd',
+          filetypes = {
+            "css",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "json",
+            "scss",
+            "less"
+          }
+        }
+      end
+    },
+    {
+      "lewis6991/gitsigns.nvim",
     },
   }
 

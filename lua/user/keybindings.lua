@@ -20,6 +20,14 @@ M.setup = function()
   -- -- Moving a line up or down
   lvim.keys.normal_mode["<A-Up>"] = ":m .-2<CR>=="
   lvim.keys.normal_mode["<A-Down>"] = ":m .+1<CR>=="
+  -- Remap enter to make a new line below curson (macOS) in normal mode
+  vim.api.nvim_set_keymap("n", "<CR>", "o<ESC>", { noremap = true, silent = true })
+  -- Remap shift enter to make a new line above cursor (macOS) in normal mode
+  vim.api.nvim_set_keymap("n", "<S-CR>", "O<ESC>", { noremap = true, silent = true })
+  -- Remap ,v to split screen vertically
+  vim.api.nvim_set_keymap("n", ",v", ":vsplit<CR>", { noremap = true, silent = true })
+
+
 end
 
 return M

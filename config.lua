@@ -49,7 +49,10 @@ lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.lsp.document_highlight = true
 
-lvim.lsp.diagnostics.virtual_text = true
+-- disable diagnostics red lines
+lvim.lsp.diagnostics.virtual_text = false
+lvim.builtin.which_key.mappings["gj"] = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Toggle LSP lines" }
+
 
 
 -- if you don't want all the parsers change this to a table of the ones you want
