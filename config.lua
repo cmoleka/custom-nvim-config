@@ -12,7 +12,7 @@ an executable
 lvim.format_on_save.enabled = true
 lvim.log.level = "warn"
 vim.opt.showmode = true
-lvim.colorscheme = "lunar"
+lvim.colorscheme = "catppuccin"
 vim.opt.relativenumber = true
 vim.opt.hlsearch = true
 vim.opt.wrap = true
@@ -50,8 +50,8 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.lsp.document_highlight = true
 
 -- disable diagnostics red lines
-lvim.lsp.diagnostics.virtual_text = false
 lvim.builtin.which_key.mappings["gj"] = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Toggle LSP lines" }
+vim.diagnostic.config({ virtual_text = false })
 
 
 

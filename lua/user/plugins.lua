@@ -33,7 +33,7 @@ M.setup = function()
     {
       "iamcco/markdown-preview.nvim",
       ft = "markdown",
-      run = ":call mkdp#util#install()",
+      build = ":call mkdp#util#install()",
       config = function()
         vim.g.mkdp_auto_start = 1
       end,
@@ -53,7 +53,7 @@ M.setup = function()
           playground = {
             enable = true,
             disable = {},
-            updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+            updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
             persist_queries = false, -- Whether the query persists across vim sessions
             keybindings = {
               toggle_query_editor = 'o',
@@ -72,7 +72,7 @@ M.setup = function()
       end,
     },
     {
-      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
       config = function()
         require("lsp_lines").setup()
       end,
@@ -122,8 +122,8 @@ M.setup = function()
     {
       "lewis6991/gitsigns.nvim",
     },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
   }
-
 end
 
 return M
